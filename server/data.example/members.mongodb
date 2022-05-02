@@ -1,0 +1,79 @@
+use("regyster"); // This is our example database. Make sure you don't call your database "example_db".
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.members.drop();
+
+// Insert a few documents into the profiles collection.
+db.members.insertMany([
+	{
+		"first_name":"Randall",
+		"last_name":"Pearson",
+		"member_id":124,
+		"email":"ibarajaz0@soundcloud.com",
+		"photo_url":"https://www.dropbox.com/s/njppd2z6zxd4olr/randall-pearson.jpeg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Rebecca",
+		"last_name":"Pearson",
+		"member_id":125,
+		"email":"ibarajaz0@soundcloud.com",
+		"photo_url":"https://www.dropbox.com/s/kgv46j0nfw1mnyg/rebecca-pearson.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Toby",
+		"last_name":"Damon",
+		"member_id":126,
+		"email":"ibarajaz0@soundcloud.com",
+		"photo_url":"https://www.dropbox.com/s/z7wkt7wuzbmzgko/toby-damon.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Katy",
+		"last_name":"Pearson-Damon",
+		"member_id":127,
+		"email":"ibarajaz0@soundcloud.com",
+		"photo_url":"https://www.dropbox.com/s/mx6u28jo9s9f3wf/katy-pearson.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Miguel",
+		"last_name":"Rivas",
+		"member_id":128,
+		"email":"tjanton1@reddit.com",
+		"photo_url":"https://www.dropbox.com/s/a4h1unkp5wl8eer/miguel-rivas.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Kevin",
+		"last_name":"Pearson",
+		"member_id":129,
+		"email":"vdevonald2@mit.edu",
+		"photo_url":"https://www.dropbox.com/s/feqcxa636xiroh1/kevin-pearson.png?dl=0&raw=1"
+	},
+	{
+		"first_name":"William",
+		"last_name":"Hill",
+		"member_id":130,
+		"email":"dcotman3@google.com",
+		"photo_url":"https://www.dropbox.com/s/1mscchsczh6wwrw/william-hill.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Madison",
+		"last_name":"Simmons",
+		"member_id":131,
+		"email":"cmacgiany4@mtv.com",
+		"photo_url":"https://www.dropbox.com/s/wea4q1cj4tnrow3/madison-simmons.jpg?dl=0&raw=1"
+	},
+	{
+		"first_name":"Malik",
+		"last_name":"Hodges",
+		"member_id":132,
+		"email":"lkigelman5@state.gov",
+		"photo_url":"https://www.dropbox.com/s/6dft0nimnk7js26/malik-hodges.png?dl=0&raw=1"
+	},
+	{
+		"first_name":"Sophie",
+		"last_name":"Larson",
+		"member_id":133,
+		"email":"hjovicevic7@state.gov",
+		"photo_url":"https://www.dropbox.com/s/l7x1xvu651q6krv/sophie-larson.jpg?dl=0&raw=1"
+	}
+]);

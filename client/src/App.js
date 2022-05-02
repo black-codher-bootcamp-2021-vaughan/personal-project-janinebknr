@@ -1,44 +1,52 @@
 import React, { useState, useEffect } from "react";
+import Search from "./components/Search";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllMembers } from "./services/memberService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [members, setMembers] = useState(null);
 
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getMembers() {
+      if (!members) {
+        const response = await getAllMembers();
+        setMembers(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getMembers();
+  }, [members]);
 
-  const renderProfile = (user) => {
+  const renderMember = (user) => {
     return (
       <li key={user._id}>
         <h3>
           {`${user.first_name} 
           ${user.last_name}`}
         </h3>
-        <p>{user.location}</p>
+        <p>
+          Member ID: {user.member_id}
+          <br />
+          Email: {user.email}
+        </p>
       </li>
     );
   };
 
   return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
-    </div>
+    <>
+      <Search />
+      <div>
+        <ul>
+          {members && members.length > 0 ? (
+            members.map((member) => renderMember(member))
+          ) : (
+            <p>No members found</p>
+          )}
+        </ul>
+      </div>
+    </>
   );
 }
 
