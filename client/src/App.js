@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
+import { updateMemberAttendance } from "./services/memberService";
 import "./App.css";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
@@ -26,7 +27,7 @@ function App() {
 
   // console.log(members.length);
 
-  const markAsAttended = (id) => {
+  const markAsAttended = async (id) => {
     console.log(id);
     setMembersPresent(
       membersPresent.concat(members.filter((member) => member.member_id === id))
@@ -39,6 +40,7 @@ function App() {
         return member;
       }),
     ]);
+    await updateMemberAttendance(id);
   };
 
   function search(value) {
@@ -49,6 +51,7 @@ function App() {
       return value == member.member_id;
     });
     console.log(searchResults);
+    setMembers(searchResults);
   }
 
   return (

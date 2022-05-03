@@ -8,5 +8,10 @@ const getAllMembers = async () => {
   return response.data || [];
 };
 
+const updateMemberAttendance = async (id) => {
+  const response = await axios.put(`/api/member/${id}`);
+  return response;
+};
+
 // All of the endpoints in this file can be exported below
-export { getAllMembers };
+export { getAllMembers, updateMemberAttendance };

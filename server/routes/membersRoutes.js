@@ -19,9 +19,13 @@ const memberRoutes = (app) => {
 
   app.put(`/api/member/:id`, async (req, res) => {
     const { id } = req.params;
-
-    const member = await Member.findByIdAndUpdate(id, req.body);
-
+    console.log(Number(req.params.id));
+    const member = await Member.find({ member_id: Number(id) });
+    const updateAttendanceLog = await Member.updateOne(
+      { member_id: Number(id) },
+      { attendance_log: [...member[0].attendance_log, new Date()] }
+    );
+    console.log(updateAttendanceLog);
     return res.status(202).send({
       error: false,
       member,
