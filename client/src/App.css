@@ -3,7 +3,7 @@
 :root {
   --main-blue: #4758e4;
   --dark-blue: #1b2259;
-  --background-grey: #dadcea;
+  --background: #dadcea;
   --body: #637088;
   /* Forms */
   --placeholder: #b6b6b6;
@@ -15,6 +15,7 @@
 }
 
 body {
+  background: var(--background);
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   line-height: 1.8;
@@ -31,6 +32,23 @@ body.login {
 .container {
   max-width: 600px;
   margin: 0 auto;
+}
+
+a {
+}
+
+p {
+  margin: 0 0 0.75em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  line-height: 1.2;
 }
 
 header {
@@ -51,6 +69,11 @@ header {
   font-size: 5em;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 nav a {
   color: #fff;
 }
@@ -59,6 +82,11 @@ nav a {
   display: flex;
   flex-direction: column;
 } */
+
+.page-title {
+  text-align: center;
+  color: var(--dark-blue);
+}
 
 ::placeholder {
   color: var(--placeholder);
@@ -90,4 +118,48 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   border-radius: 50px;
+}
+
+.searchBar {
+  padding: 40px 0;
+}
+.member {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.member img {
+  max-width: 100px;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.member-name {
+  padding-bottom: 0;
+}
+
+.member-buttons {
+  margin-left: auto;
+}
+
+.member-buttons input[type="submit"],
+.member-buttons button {
+  font-size: 0.8em;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 0.25em 1em;
+}
+
+.btn-view {
+  background: var(--main-blue);
+}
+.btn-edit,
+.btn-check-in {
+  background: var(--positive);
+}
+.btn-delete {
+  background: var(--delete);
 }

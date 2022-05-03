@@ -11,6 +11,7 @@ import MemberList from "./components/MemberList";
 
 function App() {
   const [members, setMembers] = useState(null);
+  const [membersPresent, setMembersPresent] = useState([]);
 
   useEffect(() => {
     async function getMembers() {
@@ -23,6 +24,21 @@ function App() {
     getMembers();
   }, [members]);
 
+  const markAsAttended = (id) => {
+    console.log(id);
+    setMembersPresent(
+      membersPresent.concat(members.filter((member) => member.member_id === id))
+    );
+    setMembers([
+      ...members.map((member) => {
+        if (member.member_id === id) {
+          // book.read = true;
+        }
+        return member;
+      }),
+    ]);
+  };
+
   return (
     <>
       <Router>
@@ -34,7 +50,32 @@ function App() {
             <>
               <Header />
               <Search />
-              <MemberList members={members} />
+              <MemberList
+                members={members}
+                stored="check-in-list"
+                markAsAttended={markAsAttended}
+              />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/present"
+          render={() => (
+            <>
+              <Header />
+              <MemberList members={membersPresent} stored="check-in-list" />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/members"
+          render={() => (
+            <>
+              <Header />
+              <Search />
+              <MemberList members={members} stored="member-list" />
             </>
           )}
         />

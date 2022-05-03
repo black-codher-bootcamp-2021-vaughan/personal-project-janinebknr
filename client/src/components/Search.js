@@ -10,7 +10,7 @@ const Search = () => {
   }
 
   return (
-    <div className="searchBar">
+    <div className="searchBar container">
       <form onSubmit={(event) => handleSubmit(event)}>
         <label>
           <input

@@ -14,7 +14,7 @@ const Member = ({ member, ...props }) => {
         <p>Member ID: {member_id}</p>
       </div>
       <div className="member-buttons">
-        {props.stored === "memberlist" ? (
+        {props.stored === "member-list" ? (
           <>
             <button type="button" className="btn-view">
               View
@@ -27,7 +27,11 @@ const Member = ({ member, ...props }) => {
             </button>
           </>
         ) : (
-          <button type="button" className="btn-check-in">
+          <button
+            type="button"
+            className="btn-check-in"
+            onClick={() => props.markAsAttended(member_id)}
+          >
             Check-in
           </button>
         )}
