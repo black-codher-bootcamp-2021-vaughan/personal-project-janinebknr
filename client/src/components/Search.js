@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 const Search = () => {
-  const [memberId, setMemberId] = useState();
+  // const [memberId, setMemberId] = useState();
+  const [searchTerm, setSearchTerm] = useState();
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("I'm submitting this form", memberId);
+    console.log("I'm submitting this form", searchTerm);
     // Call a function to pass the member Id i'm searching for to the App.js, so that the App.js can filter
   }
 
@@ -17,7 +18,7 @@ const Search = () => {
             type="text"
             id="search"
             placeholder="Enter Member ID"
-            onChange={(event) => setMemberId(event.target.value)}
+            onChange={(event) => setSearchTerm(event.target.value)}
           />
         </label>
         <button type="submit">Search</button>
