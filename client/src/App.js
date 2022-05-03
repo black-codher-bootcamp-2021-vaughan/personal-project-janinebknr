@@ -12,6 +12,7 @@ import MemberList from "./components/MemberList";
 function App() {
   const [members, setMembers] = useState(null);
   const [membersPresent, setMembersPresent] = useState([]);
+  const [searchTerm, setSearchTerm] = useState();
 
   useEffect(() => {
     async function getMembers() {
@@ -20,9 +21,10 @@ function App() {
         setMembers(response);
       }
     }
-
     getMembers();
   }, [members]);
+
+  // console.log(members.length);
 
   const markAsAttended = (id) => {
     console.log(id);
@@ -32,12 +34,22 @@ function App() {
     setMembers([
       ...members.map((member) => {
         if (member.member_id === id) {
-          // book.read = true;
+          member.present = true;
         }
         return member;
       }),
     ]);
   };
+
+  function search(value) {
+    console.log("Receiving search term from the search component: ", value);
+    const searchResults = members.filter((member) => {
+      // console.log("Member", member.last_name);
+      // console.log("Value", value);
+      return value == member.member_id;
+    });
+    console.log(searchResults);
+  }
 
   return (
     <>
@@ -49,11 +61,16 @@ function App() {
           render={() => (
             <>
               <Header />
-              <Search />
+              <Search
+                search={search}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+              />
               <MemberList
                 members={members}
                 stored="check-in-list"
                 markAsAttended={markAsAttended}
+                // memberCount={memberCount}
               />
             </>
           )}
