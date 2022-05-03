@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from "./components/Search";
 import Header from "./components/Header";
+import "./App.css";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllMembers } from "./services/memberService";
