@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from "./components/Search";
+import Header from "./components/Header";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllMembers } from "./services/memberService";
@@ -36,16 +38,27 @@ function App() {
 
   return (
     <>
-      <Search />
-      <div>
-        <ul>
-          {members && members.length > 0 ? (
-            members.map((member) => renderMember(member))
-          ) : (
-            <p>No members found</p>
+      <Router>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Header />
+              <Search />
+              <div>
+                <ul>
+                  {members && members.length > 0 ? (
+                    members.map((member) => renderMember(member))
+                  ) : (
+                    <p>No members found</p>
+                  )}
+                </ul>
+              </div>
+            </>
           )}
-        </ul>
-      </div>
+        />
+      </Router>
     </>
   );
 }
