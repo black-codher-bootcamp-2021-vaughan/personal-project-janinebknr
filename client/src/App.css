@@ -4,9 +4,9 @@
   --main-blue: #4758e4;
   --dark-blue: #1b2259;
   --background-grey: #dadcea;
-  --body-grey: #637088;
+  --body: #637088;
   /* Forms */
-  --placeholder-grey: #b6b6b6;
+  --placeholder: #b6b6b6;
   --input-border: #c3cad5;
   /* Buttons */
   --positive: #29cb97;
@@ -16,7 +16,21 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--body);
   margin: 0;
+}
+
+body.login {
+  background: var(--main-blue);
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 header {
@@ -27,9 +41,53 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-.logo-header {
-  letter-spacing: -3px;
+
+.logo-header,
+.logo-login {
+  text-transform: lowercase;
+  letter-spacing: -0.1em;
 }
+.logo-login {
+  font-size: 5em;
+}
+
 nav a {
   color: #fff;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+} */
+
+::placeholder {
+  color: var(--placeholder);
+}
+
+input,
+select,
+input[type="submit"],
+button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  padding: 0.8em;
+  margin-bottom: 1em;
+}
+
+input,
+select {
+  border: 2px solid var(--input-border);
+  border-radius: 5px;
+}
+
+input[type="submit"],
+button {
+  background: var(--dark-blue);
+  color: #fff;
+  border: none;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-radius: 50px;
 }

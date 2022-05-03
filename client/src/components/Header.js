@@ -6,7 +6,7 @@ const Header = (props) => {
     <header>
       <h1 className="logo-header">Regyster</h1>
       <nav className="main-nav">
-        <ul className="menu">
+        <ul className="menus">
           <li>
             <Link to="/">Check-in</Link>
           </li>
