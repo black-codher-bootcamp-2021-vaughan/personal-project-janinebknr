@@ -19,10 +19,8 @@ const Search = (props) => {
         </label>
         <button type="submit">Search</button>
       </form>
-      <p>
-        <em>
-          {props.searchTerm && "Searching for terms: " + props.searchTerm}
-        </em>
+      <p className="searchingFor">
+        {props.searchTerm && "Searching for terms: " + props.searchTerm}
       </p>
     </div>
   );

@@ -5,7 +5,7 @@ const MemberList = ({ members, ...props }) => {
   //   const renderMember = (user) => {
   //   };
   return (
-    <div className="container">
+    <div id="content" className="container">
       {members && members.length > 0 ? (
         members.map((member) => (
           <Member

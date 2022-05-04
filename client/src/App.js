@@ -4,6 +4,7 @@ import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import { updateMemberAttendance } from "./services/memberService";
+
 import "./App.css";
 
 // SERVICES THAT CALL OUR API ENDPOINTS

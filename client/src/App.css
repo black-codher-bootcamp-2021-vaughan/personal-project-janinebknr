@@ -12,6 +12,8 @@
   --positive: #29cb97;
   --delete: #d43024;
   --cancel: #9fa7e8;
+
+  box-sizing: border-box;
 }
 
 body {
@@ -35,10 +37,15 @@ body.login {
 }
 
 a {
+  text-decoration: none;
 }
 
 p {
   margin: 0 0 0.75em 0;
+}
+
+p:empty {
+  display: none;
 }
 
 h1,
@@ -51,13 +58,62 @@ h6 {
   line-height: 1.2;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 header {
   background: var(--main-blue);
   color: #fff;
+}
+
+header .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 100px;
+}
+
+header a h1 {
+  color: #ffffff;
+}
+
+#content.container {
+  padding: 2em 0;
+}
+
+.login .container {
+  max-width: 600px;
+  margin-top: 150px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0.8em;
+}
+
+nav li {
+  float: left;
+  box-sizing: border-box;
+}
+
+nav li a {
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  padding: 0.5em 0.7em;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 5px solid transparent;
+}
+
+nav li a:hover {
+  border-bottom: 5px solid var(--dark-blue);
 }
 
 .logo-header,
@@ -67,11 +123,6 @@ header {
 }
 .logo-login {
   font-size: 5em;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 nav a {
@@ -100,6 +151,7 @@ button {
   font-size: 1em;
   padding: 0.8em;
   margin-bottom: 1em;
+  box-sizing: border-box;
 }
 
 input,
@@ -120,9 +172,46 @@ button {
   border-radius: 50px;
 }
 
-.searchBar {
-  padding: 40px 0;
+#login-form {
+  box-sizing: border-box;
 }
+
+#login-form input,
+#login-form button {
+  display: block;
+  width: 100%;
+}
+
+.searchBar {
+  padding-top: 2em;
+}
+
+.searchBar form {
+  display: flex;
+  align-items: stretch;
+}
+
+.searchBar form label {
+  flex: 1;
+}
+
+.searchBar #search {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  width: 100%;
+  height: 2em;
+}
+
+.searchBar button {
+  border-radius: 0 5px 5px 0;
+}
+
+.searchingFor {
+  font-style: italic;
+}
+
 .member {
   background: #fff;
   padding: 20px;
