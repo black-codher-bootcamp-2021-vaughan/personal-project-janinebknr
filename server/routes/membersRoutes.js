@@ -3,7 +3,7 @@ const Member = mongoose.model("members");
 
 const memberRoutes = (app) => {
   app.get(`/api/member`, async (req, res) => {
-    const members = await Member.find();
+    const members = await Member.find().sort({ last_name: 1 });
 
     return res.status(200).send(members);
   });
