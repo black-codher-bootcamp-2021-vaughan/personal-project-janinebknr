@@ -45,12 +45,19 @@ function App() {
   };
 
   async function search(value) {
-    console.log("Receiving search term from the search component: ", value);
-    // const searchResults = members.filter(member => member.member_ID.includes(value));
-    const searchResults = members.filter((member) => {
-      // console.log("Member", member.last_name);
-      // console.log("Value", value);
-      return value == member.member_id;
+    // console.log("Receiving search term from the search component: ", value);
+    // // const searchResults = members.filter(member => member.member_ID.includes(value));
+    // const searchResults = members.filter((member) => {
+    //   // console.log("Member", member.last_name);
+    //   // console.log("Value", value);
+    //   return value == member.member_id;
+    // });
+    let searchResults = members.filter((member) => {
+      if (value === "") {
+        return member;
+      } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
+        return member;
+      }
     });
 
     console.log(searchResults);
