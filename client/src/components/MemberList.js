@@ -9,7 +9,7 @@ const MemberList = ({ members, ...props }) => {
       {members && members.length > 0 ? (
         members.map((member) => (
           <Member
-            key={member.member_id}
+            key={member._id}
             member={member}
             stored="memberlist"
             {...props}
