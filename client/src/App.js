@@ -44,13 +44,15 @@ function App() {
     await updateMemberAttendance(id);
   };
 
-  function search(value) {
+  async function search(value) {
     console.log("Receiving search term from the search component: ", value);
+    // const searchResults = members.filter(member => member.member_ID.includes(value));
     const searchResults = members.filter((member) => {
       // console.log("Member", member.last_name);
       // console.log("Value", value);
       return value == member.member_id;
     });
+
     console.log(searchResults);
     setMembers(searchResults);
   }

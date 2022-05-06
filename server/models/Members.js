@@ -7,7 +7,7 @@ const memberSchema = new Schema({
   member_id: Number,
   email: String,
   photo_url: String,
-  // attendance_log: [],
+  attendance_log: [],
 });
 
 mongoose.model("members", memberSchema);

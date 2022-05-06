@@ -4,11 +4,6 @@ const Login = () => {
   useEffect(() => {
     // 👇 add class to body element
     document.body.classList.add("login");
-
-    // 👇️ checking if body element contains a class
-    if (document.body.classList.contains("bg-salmon")) {
-      console.log("body tag contains class");
-    }
   }, []);
 
   return (

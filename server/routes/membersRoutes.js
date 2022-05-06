@@ -25,7 +25,7 @@ const memberRoutes = (app) => {
       { member_id: Number(id) },
       { attendance_log: [...member[0].attendance_log, new Date()] }
     );
-    console.log(updateAttendanceLog);
+    // console.log(updateAttendanceLog);
     return res.status(202).send({
       error: false,
       member,
