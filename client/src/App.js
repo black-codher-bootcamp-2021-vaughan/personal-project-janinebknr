@@ -52,14 +52,16 @@ function App() {
     //   // console.log("Value", value);
     //   return value == member.member_id;
     // });
+
+    // Filter database if member_id includes any numbers in the search term
     let searchResults = members.filter((member) => {
       if (value === "") {
         return member;
-      } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
+      } else if ((member.member_id + "").indexOf(value) > -1) {
+        // } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
         return member;
       }
     });
-
     console.log(searchResults);
     setMembers(searchResults);
   }
