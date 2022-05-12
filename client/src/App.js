@@ -26,8 +26,6 @@ function App() {
     getMembers();
   }, [members]);
 
-  // console.log(members.length);
-
   const markAsAttended = async (id) => {
     console.log(id);
     setMembersPresent(
