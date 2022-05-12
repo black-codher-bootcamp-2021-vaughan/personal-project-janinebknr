@@ -45,14 +45,6 @@ function App() {
   };
 
   async function search(value) {
-    // console.log("Receiving search term from the search component: ", value);
-    // // const searchResults = members.filter(member => member.member_ID.includes(value));
-    // const searchResults = members.filter((member) => {
-    //   // console.log("Member", member.last_name);
-    //   // console.log("Value", value);
-    //   return value == member.member_id;
-    // });
-
     // Filter database if member_id includes any numbers in the search term
     let searchResults = members.filter((member) => {
       if (value === "") {
@@ -83,7 +75,7 @@ function App() {
               />
               <MemberList
                 members={members}
-                stored="check-in-list"
+                stored="absent"
                 markAsAttended={markAsAttended}
                 // memberCount={memberCount}
               />
@@ -96,7 +88,7 @@ function App() {
           render={() => (
             <>
               <Header />
-              <MemberList members={membersPresent} stored="check-in-list" />
+              <MemberList members={membersPresent} stored="present" />
             </>
           )}
         />
@@ -107,7 +99,7 @@ function App() {
             <>
               <Header />
               <Search />
-              <MemberList members={members} stored="member-list" />
+              <MemberList members={members} stored="admin" />
             </>
           )}
         />
