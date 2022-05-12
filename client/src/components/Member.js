@@ -14,7 +14,7 @@ const Member = ({ member, ...props }) => {
         <p>Member ID: {member_id}</p>
       </div>
       <div className="member-buttons">
-        {props.stored === "member-list" ? (
+        {props.stored === "admin" ? (
           <>
             <button type="button" className="btn-view">
               View
@@ -26,6 +26,10 @@ const Member = ({ member, ...props }) => {
               Delete
             </button>
           </>
+        ) : props.stored === "present" ? (
+          <button type="button" className="btn-cancel">
+            Remove
+          </button>
         ) : (
           <button
             type="button"

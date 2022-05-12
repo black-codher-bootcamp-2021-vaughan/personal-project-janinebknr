@@ -260,10 +260,14 @@ button {
 .btn-delete {
   background: var(--delete);
 }
+.btn-cancel {
+  background: var(--cancel);
+}
 
 .btn-view:hover,
 .btn-edit:hover,
 .btn-check-in:hover,
-.btn-delete:hover {
+.btn-delete:hover,
+.btn-cancel:hover {
   opacity: 0.5;
 }
