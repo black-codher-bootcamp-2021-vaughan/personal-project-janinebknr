@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// Components
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
@@ -7,7 +9,7 @@ import MemberList from "./components/MemberList";
 
 import "./App.css";
 
-// SERVICES THAT CALL OUR API ENDPOINTS
+// Services that call our API endpoints
 import {
   getAllMembers,
   updateMemberAttendance,
@@ -18,6 +20,7 @@ function App() {
   const [membersPresent, setMembersPresent] = useState([]);
   const [searchTerm, setSearchTerm] = useState();
 
+  // GET member data from database
   useEffect(() => {
     async function getMembers() {
       if (!members) {
