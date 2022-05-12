@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
-import { updateMemberAttendance } from "./services/memberService";
+import MemberList from "./components/MemberList";
 
 import "./App.css";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllMembers } from "./services/memberService";
-import MemberList from "./components/MemberList";
+import {
+  getAllMembers,
+  updateMemberAttendance,
+} from "./services/memberService";
 
 function App() {
   const [members, setMembers] = useState(null);
