@@ -14,7 +14,7 @@ const Header = (props) => {
               <Link to="/">Check-in</Link>
             </li>
             <li>
-              <Link to="/present">Present (#)</Link>
+              <Link to="/present">Present ({props.presentCount})</Link>
             </li>
             <li>
               <Link to="/members">Members</Link>

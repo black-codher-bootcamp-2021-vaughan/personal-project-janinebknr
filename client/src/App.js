@@ -35,21 +35,6 @@ function App() {
     getMembers();
   }, [members]);
 
-  // Filtering with search bar
-  async function search(value) {
-    // Filter database if member_id includes any numbers in the search term
-    let searchResults = members.filter((member) => {
-      if (value === "") {
-        return member;
-      } else if ((member.member_id + "").indexOf(value) > -1) {
-        // } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
-        return member;
-      }
-    });
-    console.log(searchResults);
-    setFilteredMembers(searchResults);
-  }
-
   const markAsAttended = async (id) => {
     console.log(id);
     setMembersPresent(
@@ -66,6 +51,26 @@ function App() {
     await updateMemberAttendance(id);
   };
 
+  const presentCount = membersPresent.length;
+
+  // Filtering with search bar
+  async function search(value) {
+    // Filter database if member_id includes any numbers in the search term
+    let searchResults = members.filter((member) => {
+      if (value === "") {
+        return member;
+      } else if (
+        (member.member_id + "").indexOf(value) > -1 &&
+        !member.present
+      ) {
+        // } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
+        return member;
+      }
+    });
+    console.log(searchResults);
+    setFilteredMembers(searchResults);
+  }
+
   return (
     <>
       <Router>
@@ -75,7 +80,7 @@ function App() {
           path="/"
           render={() => (
             <div className="invert">
-              <Header />
+              <Header presentCount={presentCount} />
               <PageHeader page="absent" />
               <Search
                 search={search}
@@ -96,7 +101,7 @@ function App() {
           path="/present"
           render={() => (
             <>
-              <Header />
+              <Header presentCount={presentCount} />
               <PageHeader page="present" />
               <MemberList members={membersPresent} stored="present" />
             </>
@@ -107,7 +112,7 @@ function App() {
           path="/members"
           render={() => (
             <>
-              <Header />
+              <Header presentCount={presentCount} />
               <PageHeader page="admin" />
               <Search />
               <MemberList members={members} stored="admin" />
