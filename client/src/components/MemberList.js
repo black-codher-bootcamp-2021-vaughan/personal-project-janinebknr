@@ -8,15 +8,10 @@ const MemberList = ({ members, ...props }) => {
     <div id="content" className="container">
       {members && members.length > 0 ? (
         members.map((member) => (
-          <Member
-            key={member._id}
-            member={member}
-            stored="memberlist"
-            {...props}
-          />
+          <Member key={member._id} member={member} {...props} />
         ))
       ) : (
-        <p>No members found</p>
+        <p></p>
       )}
     </div>
   );

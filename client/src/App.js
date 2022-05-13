@@ -56,6 +56,7 @@ function App() {
   // Filtering with search bar
   async function search(value) {
     console.log(value);
+
     // Filter database if member_id includes any numbers in the search term
     let searchResults = members.filter((member) => {
       if (value === "") {
