@@ -1,4 +1,5 @@
 import React from "react";
+import { FaEye, FaPen, FaTrashAlt } from "react-icons/fa";
 
 const Member = ({ member, ...props }) => {
   //Nested Destructuring
@@ -17,13 +18,13 @@ const Member = ({ member, ...props }) => {
         {props.stored === "admin" ? (
           <>
             <button type="button" className="btn-view">
-              View
+              <FaEye /> View
             </button>
             <button type="button" className="btn-edit">
-              Edit
+              <FaPen /> Edit
             </button>
             <button type="button" className="btn-delete">
-              Delete
+              <FaTrashAlt /> Delete
             </button>
           </>
         ) : props.stored === "present" ? (
