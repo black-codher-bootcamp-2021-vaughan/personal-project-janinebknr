@@ -135,9 +135,18 @@ nav a {
   flex-direction: column;
 } */
 
-.page-title {
+.pageTitle {
   text-align: center;
+  padding-top: 3em;
+}
+.pageTitle h2 {
   color: var(--dark-blue);
+  letter-spacing: -0.05em;
+  font-size: 2.8em;
+}
+
+.pageTitle p {
+  letter-spacing: -0.025em;
 }
 
 ::placeholder {

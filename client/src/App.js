@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import MemberList from "./components/MemberList";
+import PageHeader from "./components/PageHeader";
 
 import "./App.css";
 
@@ -74,6 +75,7 @@ function App() {
           render={() => (
             <>
               <Header />
+              <PageHeader page="absent" />
               <Search
                 search={search}
                 searchTerm={searchTerm}
@@ -94,6 +96,7 @@ function App() {
           render={() => (
             <>
               <Header />
+              <PageHeader page="present" />
               <MemberList members={membersPresent} stored="present" />
             </>
           )}
@@ -104,6 +107,7 @@ function App() {
           render={() => (
             <>
               <Header />
+              <PageHeader page="admin" />
               <Search />
               <MemberList members={members} stored="admin" />
             </>
