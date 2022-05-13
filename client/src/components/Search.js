@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSearch } from "react-icons/fa";
+// import { FaSearch } from "react-icons/fa";
 
 const Search = (props) => {
   const handleChange = (event) => {
@@ -18,9 +18,6 @@ const Search = (props) => {
             onChange={handleChange}
           />
         </label>
-        <div className="searchIcon">
-          <FaSearch />
-        </div>
       </form>
       <p className="searchingFor">
         {props.searchTerm && "Searching for terms: " + props.searchTerm}
