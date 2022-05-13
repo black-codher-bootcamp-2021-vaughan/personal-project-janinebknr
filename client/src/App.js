@@ -17,8 +17,10 @@ import {
 
 function App() {
   const [members, setMembers] = useState(null);
-  const [membersPresent, setMembersPresent] = useState([]);
+  const [filteredMembers, setFilteredMembers] = useState([]);
   const [searchTerm, setSearchTerm] = useState();
+
+  const [membersPresent, setMembersPresent] = useState([]);
 
   // GET member data from database
   useEffect(() => {
@@ -30,6 +32,21 @@ function App() {
     }
     getMembers();
   }, [members]);
+
+  // Filtering with search bar
+  async function search(value) {
+    // Filter database if member_id includes any numbers in the search term
+    let searchResults = members.filter((member) => {
+      if (value === "") {
+        return member;
+      } else if ((member.member_id + "").indexOf(value) > -1) {
+        // } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
+        return member;
+      }
+    });
+    console.log(searchResults);
+    setFilteredMembers(searchResults);
+  }
 
   const markAsAttended = async (id) => {
     console.log(id);
@@ -47,20 +64,6 @@ function App() {
     await updateMemberAttendance(id);
   };
 
-  async function search(value) {
-    // Filter database if member_id includes any numbers in the search term
-    let searchResults = members.filter((member) => {
-      if (value === "") {
-        return member;
-      } else if ((member.member_id + "").indexOf(value) > -1) {
-        // } else if (member.last_name.toLowerCase().includes(value.toLowerCase())) {
-        return member;
-      }
-    });
-    console.log(searchResults);
-    setMembers(searchResults);
-  }
-
   return (
     <>
       <Router>
@@ -77,7 +80,7 @@ function App() {
                 setSearchTerm={setSearchTerm}
               />
               <MemberList
-                members={members}
+                members={filteredMembers}
                 stored="absent"
                 markAsAttended={markAsAttended}
                 // memberCount={memberCount}
