@@ -25,6 +25,7 @@ function App() {
 
   // GET member data from database
   useEffect(() => {
+    document.title = "Regyster";
     async function getMembers() {
       if (!members) {
         const response = await getAllMembers();
