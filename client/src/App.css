@@ -64,6 +64,11 @@ h6 {
   margin: 0 auto;
 }
 
+.invert {
+  background-color: var(--dark-blue);
+  min-height: 100vh;
+}
+
 header {
   background: var(--main-blue);
   color: #fff;
@@ -147,6 +152,11 @@ nav a {
 
 .pageTitle p {
   letter-spacing: -0.025em;
+}
+
+.invert .pageTitle,
+.invert .pageTitle h2 {
+  color: #fff;
 }
 
 ::placeholder {

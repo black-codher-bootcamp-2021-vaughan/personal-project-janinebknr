@@ -73,7 +73,7 @@ function App() {
           exact
           path="/"
           render={() => (
-            <>
+            <div className="invert">
               <Header />
               <PageHeader page="absent" />
               <Search
@@ -87,7 +87,7 @@ function App() {
                 markAsAttended={markAsAttended}
                 // memberCount={memberCount}
               />
-            </>
+            </div>
           )}
         />
         <Route
