@@ -110,6 +110,7 @@ nav li {
 
 nav li a {
   margin-top: 5px;
+  margin-left: 0.5em;
   display: block;
   text-align: center;
   padding: 0.5em 0.7em;
@@ -129,6 +130,9 @@ nav li a:hover {
 }
 .logo-login {
   font-size: 5em;
+}
+.logo-header {
+  padding-top: 0.5em;
 }
 
 nav a {
