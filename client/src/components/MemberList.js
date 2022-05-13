@@ -7,9 +7,11 @@ const MemberList = ({ members, ...props }) => {
   return (
     <div id="content" className="container">
       {members && members.length > 0 ? (
-        members.map((member) => (
-          <Member key={member._id} member={member} {...props} />
-        ))
+        members
+          .filter((member) => !member.present)
+          .map((member) => (
+            <Member key={member._id} member={member} {...props} />
+          ))
       ) : (
         <p></p>
       )}

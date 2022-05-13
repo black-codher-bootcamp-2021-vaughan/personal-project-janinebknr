@@ -4,6 +4,7 @@ import React from "react";
 const Search = (props) => {
   const handleChange = (event) => {
     props.search(props.searchTerm);
+    event.persist();
     props.setSearchTerm(event.target.value);
   };
 

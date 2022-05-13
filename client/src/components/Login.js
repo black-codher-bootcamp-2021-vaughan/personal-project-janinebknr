@@ -11,12 +11,22 @@ const Login = () => {
       <h1 className="logo-login">Regyster</h1>
       <form id="login-form">
         <label>
-          <input type="text" id="username" placeholder="Username" />
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            value="test"
+          />
         </label>
         <label>
-          <input type="password" id="password" placeholder="Password" />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value="bkjsnsy897soujshkbds"
+          />
         </label>
-        <button type="submit" formaction="/">
+        <button type="submit" formAction="/">
           Login
         </button>
       </form>

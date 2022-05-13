@@ -26,6 +26,8 @@ function App() {
   // GET member data from database
   useEffect(() => {
     document.title = "Regyster";
+    console.log("Search message inside useEffect: ", searchTerm);
+
     async function getMembers() {
       if (!members) {
         const response = await getAllMembers();
@@ -33,7 +35,7 @@ function App() {
       }
     }
     getMembers();
-  }, [members]);
+  }, [members, searchTerm]);
 
   const markAsAttended = async (id) => {
     console.log(id);
@@ -55,7 +57,7 @@ function App() {
 
   // Filtering with search bar
   async function search(value) {
-    console.log(value);
+    console.log("Search message inside value: ", value);
 
     // Filter database if member_id includes any numbers in the search term
     let searchResults = members.filter((member) => {
